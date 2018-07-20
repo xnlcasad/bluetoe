@@ -9,9 +9,9 @@ set(CXX_DISABLED_WARNINGS "-Wno-parentheses")
 set(CXX_DEFAULT_FLAGS "${CXX_DEFAULT_FLAGS} -Wfatal-errors -Werror -Wno-sign-compare")
 
 set(CMAKE_SYSTEM_NAME Generic)
-set(CMAKE_CXX_COMPILER "arm-none-eabi-g++")
-set(CMAKE_C_COMPILER "arm-none-eabi-gcc")
-set(CMAKE_ASM_COMPILER "arm-none-eabi-gcc")
+set(CMAKE_CXX_COMPILER "/usr/local/gcc-arm-none-eabi-6-2017-q2-update/bin/arm-none-eabi-g++")
+set(CMAKE_C_COMPILER "/usr/local/gcc-arm-none-eabi-6-2017-q2-update/bin/arm-none-eabi-gcc")
+set(CMAKE_ASM_COMPILER "/usr/local/gcc-arm-none-eabi-6-2017-q2-update/bin/arm-none-eabi-gcc")
 set(CMAKE_C_COMPILER_FORCED 1)
 set(CMAKE_CXX_COMPILER_FORCED 1)
 set(ARM_FLAGS "--sysroot=/usr/local/arm/arm-none-eabi -mthumb -mcpu=cortex-m0")
@@ -71,10 +71,10 @@ function(add_example TARGETNAME)
         LINK_FLAGS "-T ${CMAKE_CURRENT_LIST_DIR}/nrf51_xxaa.ld -Wl,-Map -Wl,${TARGETNAME}.map")
 
     add_custom_target(${TARGETNAME}.bin
-        arm-none-eabi-objcopy -S -O binary ${TARGETNAME}.elf ${TARGETNAME}.bin
+        /usr/local/gcc-arm-none-eabi-6-2017-q2-update/bin/arm-none-eabi-objcopy -S -O binary ${TARGETNAME}.elf ${TARGETNAME}.bin
         )
     add_custom_target(${TARGETNAME}.hex
-        arm-none-eabi-objcopy -S -O ihex ${TARGETNAME}.elf ${TARGETNAME}.hex
+        /usr/local/gcc-arm-none-eabi-6-2017-q2-update/bin/arm-none-eabi-objcopy -S -O ihex ${TARGETNAME}.elf ${TARGETNAME}.hex
         )
     add_custom_target(${TARGETNAME}.lis
         arm-none-eabi-objdump -S ${TARGETNAME}.elf > ${TARGETNAME}.lis
