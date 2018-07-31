@@ -104,7 +104,7 @@ function(add_example TARGETNAME)
                 echo "q" >> ${TARGETNAME}.jlink)
 
         add_custom_target(${TARGETNAME}.flash
-            COMMAND JLinkExe ${TARGETNAME}.jlink
+            COMMAND JLinkExe -device nrf51822 -if swd -speed 1000 ${TARGETNAME}.jlink
             )
 
         add_dependencies(${TARGETNAME}.flash ${TARGETNAME}.bin)
@@ -125,7 +125,7 @@ add_custom_target(
         echo "q" >> erase.jlink)
 
 add_custom_target(erase.flash
-   COMMAND JLinkExe erase.jlink)
+        COMMAND JLinkExe -device nrf51822 -if swd -speed 1000 erase.jlink)
 
 add_dependencies(erase.flash erase.jlink)
 
