@@ -34,7 +34,7 @@ set(CXX_DISABLED_WARNINGS "${CXX_DISABLED_WARNINGS} -Wno-unused-local-typedefs")
 set(LINK_DEFAULT_FLAGS "${LINK_DEFAULT_FLAGS} -Wl,--gc-sections -L ${CMAKE_SOURCE_DIR}/examples")
 
 # debugging
-set(CXX_BUILD_TYPE_FLAGS "-g -O0")
+set(CXX_BUILD_TYPE_FLAGS "-g -O2")
 set(LINK_BUILD_TYPE_FLAGS "-g")
 
 project(discover_service_by_uuid CXX ASM C)
